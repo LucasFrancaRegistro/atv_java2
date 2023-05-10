@@ -16,70 +16,70 @@ public class AdicionadorLinkEndereco implements AdicionadorLink<Endereco>{
 	public void adicionarLink(List<Endereco> lista) {
 		for (Endereco endereco : lista) {
 			long id = endereco.getId();
-			Link linkProprio = WebMvcLinkBuilder
+			Link linkProprioEndereco = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(EnderecoControle.class)
 							.obterEndereco(id))
 					.withSelfRel();
-			Link linkProprio2 = WebMvcLinkBuilder
+			Link linkProprioEnderecos = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(EnderecoControle.class)
 							.obterEnderecos())
 					.withSelfRel();
-			Link linkProprio3 = WebMvcLinkBuilder
+			Link linkProprioCadastrar = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(EnderecoControle.class)
 							.cadastrarEndereco(endereco))
 					.withSelfRel();
-			Link linkProprio4 = WebMvcLinkBuilder
+			Link linkProprioAtualizar = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(EnderecoControle.class)
 							.atualizarEndereco(endereco))
 					.withSelfRel();
-			Link linkProprio5 = WebMvcLinkBuilder
+			Link linkProprioExcluir = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(EnderecoControle.class)
 							.excluirEndereco(endereco))
 					.withSelfRel();
-			endereco.add(linkProprio);
-			endereco.add(linkProprio2);
-			endereco.add(linkProprio3);
-			endereco.add(linkProprio4);
-			endereco.add(linkProprio5);
+			endereco.add(linkProprioEndereco);
+			endereco.add(linkProprioEnderecos);
+			endereco.add(linkProprioCadastrar);
+			endereco.add(linkProprioAtualizar);
+			endereco.add(linkProprioExcluir);
 		}
 	}
 
 	@Override
 	public void adicionarLink(Endereco objeto) {
-		Link linkProprio = WebMvcLinkBuilder
+		Link linkProprioEnderecos = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(EnderecoControle.class)
 						.obterEnderecos())
 				.withRel("enderecos");
-		Link linkProprio2 = WebMvcLinkBuilder
+		Link linkProprioEndereco = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(EnderecoControle.class)
 						.obterEndereco(objeto.getId()))
-				.withRel("enderecos");
-		Link linkProprio3 = WebMvcLinkBuilder
+				.withRel("endereco");
+		Link linkProprioCadastrar = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(EnderecoControle.class)
 						.cadastrarEndereco(objeto))
-				.withRel("enderecos");
-		Link linkProprio4 = WebMvcLinkBuilder
+				.withRel("cadastrar");
+		Link linkProprioAtualizar = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(EnderecoControle.class)
 						.atualizarEndereco(objeto))
-				.withRel("enderecos");
-		Link linkProprio5 = WebMvcLinkBuilder
+				.withRel("atualizar");
+		Link linkProprioExcluir = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(EnderecoControle.class)
 						.excluirEndereco(objeto))
-				.withRel("enderecos");
-		objeto.add(linkProprio);
-		objeto.add(linkProprio2);
-		objeto.add(linkProprio3);
-		objeto.add(linkProprio4);
-		objeto.add(linkProprio5);
+				.withRel("excluir");
+		objeto.add(linkProprioEndereco);
+		objeto.add(linkProprioEnderecos);
+		objeto.add(linkProprioCadastrar);
+		objeto.add(linkProprioAtualizar);
+		objeto.add(linkProprioExcluir);
 	}
 }

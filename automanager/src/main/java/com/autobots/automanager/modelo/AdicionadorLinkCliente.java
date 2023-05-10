@@ -16,70 +16,70 @@ public class AdicionadorLinkCliente implements AdicionadorLink<Cliente> {
 	public void adicionarLink(List<Cliente> lista) {
 		for (Cliente cliente : lista) {
 			long id = cliente.getId();
-			Link linkProprio = WebMvcLinkBuilder
+			Link linkProprioCliente = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(ClienteControle.class)
 							.obterCliente(id))
 					.withSelfRel();
-			Link linkProprio2 = WebMvcLinkBuilder
+			Link linkProprioExcluir = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(ClienteControle.class)
 							.excluirCliente(cliente))
 					.withSelfRel();
-			Link linkProprio3 = WebMvcLinkBuilder
+			Link linkProprioAtualizar = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(ClienteControle.class)
 							.atualizarCliente(cliente))
 					.withSelfRel();
-			Link linkProprio4 = WebMvcLinkBuilder
+			Link linkProprioCadastrar = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(ClienteControle.class)
 							.cadastrarCliente(cliente))
 					.withSelfRel();
-			Link linkProprio5 = WebMvcLinkBuilder
+			Link linkProprioClientes = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(ClienteControle.class)
 							.obterClientes())
 					.withSelfRel();
-			cliente.add(linkProprio);
-			cliente.add(linkProprio2);
-			cliente.add(linkProprio3);
-			cliente.add(linkProprio4);
-			cliente.add(linkProprio5);
+			cliente.add(linkProprioCliente);
+			cliente.add(linkProprioExcluir);
+			cliente.add(linkProprioAtualizar);
+			cliente.add(linkProprioCadastrar);
+			cliente.add(linkProprioClientes);
 		}
 	}
 
 	@Override
 	public void adicionarLink(Cliente objeto) {
-		Link linkProprio = WebMvcLinkBuilder
+		Link linkProprioCliente = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(ClienteControle.class)
 						.obterCliente(objeto.getId()))
-				.withRel("clientes");
-		Link linkProprio2 = WebMvcLinkBuilder
+				.withRel("cliente");
+		Link linkProprioClientes = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(ClienteControle.class)
 						.obterClientes())
 				.withRel("clientes");
-		Link linkProprio3 = WebMvcLinkBuilder
+		Link linkProprioCadastrar = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(ClienteControle.class)
 						.cadastrarCliente(objeto))
-				.withRel("clientes");
-		Link linkProprio4 = WebMvcLinkBuilder
+				.withRel("cadastrar");
+		Link linkProprioAtualizar = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(ClienteControle.class)
 						.atualizarCliente(objeto))
-				.withRel("clientes");
-		Link linkProprio5 = WebMvcLinkBuilder
+				.withRel("atualizar");
+		Link linkProprioExcluir = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(ClienteControle.class)
 						.excluirCliente(objeto))
-				.withRel("clientes");
-		objeto.add(linkProprio);
-		objeto.add(linkProprio2);
-		objeto.add(linkProprio3);
-		objeto.add(linkProprio4);
-		objeto.add(linkProprio5);
+				.withRel("excluir");
+		objeto.add(linkProprioCliente);
+		objeto.add(linkProprioClientes);
+		objeto.add(linkProprioCadastrar);
+		objeto.add(linkProprioAtualizar);
+		objeto.add(linkProprioExcluir);
 	}
 }

@@ -16,70 +16,70 @@ public class AdicionadorLinkTelefone implements AdicionadorLink<Telefone>{
 	public void adicionarLink(List<Telefone> lista) {
 		for (Telefone telefone : lista) {
 			long id = telefone.getId();
-			Link linkProprio = WebMvcLinkBuilder
+			Link linkProprioTelefone = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(TelefoneControle.class)
 							.obterTelefone(id))
 					.withSelfRel();
-			Link linkProprio2 = WebMvcLinkBuilder
+			Link linkProprioTelefones = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(TelefoneControle.class)
 							.obterTelefones())
 					.withSelfRel();
-			Link linkProprio3 = WebMvcLinkBuilder
+			Link linkProprioCadastrar = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(TelefoneControle.class)
 							.cadastrarTelefone(telefone))
 					.withSelfRel();
-			Link linkProprio4 = WebMvcLinkBuilder
+			Link linkProprioAtualizar = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(TelefoneControle.class)
 							.atualizarTelefone(telefone))
 					.withSelfRel();
-			Link linkProprio5 = WebMvcLinkBuilder
+			Link linkProprioExcluir = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(TelefoneControle.class)
 							.excluirTelefone(telefone))
 					.withSelfRel();
-			telefone.add(linkProprio);
-			telefone.add(linkProprio2);
-			telefone.add(linkProprio3);
-			telefone.add(linkProprio4);
-			telefone.add(linkProprio5);
+			telefone.add(linkProprioTelefone);
+			telefone.add(linkProprioTelefones);
+			telefone.add(linkProprioCadastrar);
+			telefone.add(linkProprioAtualizar);
+			telefone.add(linkProprioExcluir);
 		}
 	}
 
 	@Override
 	public void adicionarLink(Telefone objeto) {
-		Link linkProprio = WebMvcLinkBuilder
+		Link linkProprioTelefones = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(TelefoneControle.class)
 						.obterTelefones())
-				.withRel("telefone");
-		Link linkProprio2 = WebMvcLinkBuilder
+				.withRel("telefones");
+		Link linkProprioTelefone = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(TelefoneControle.class)
 						.obterTelefone(objeto.getId()))
 				.withRel("telefone");
-		Link linkProprio3 = WebMvcLinkBuilder
+		Link linkProprioCadastrar = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(TelefoneControle.class)
 						.cadastrarTelefone(objeto))
-				.withRel("telefone");
-		Link linkProprio4 = WebMvcLinkBuilder
+				.withRel("cadastrar");
+		Link linkProprioAtualizar = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(TelefoneControle.class)
 						.atualizarTelefone(objeto))
-				.withRel("telefone");
-		Link linkProprio5 = WebMvcLinkBuilder
+				.withRel("atualizar");
+		Link linkProprioExcluir = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(TelefoneControle.class)
 						.excluirTelefone(objeto))
-				.withRel("telefone");
-		objeto.add(linkProprio);
-		objeto.add(linkProprio2);
-		objeto.add(linkProprio3);
-		objeto.add(linkProprio4);
-		objeto.add(linkProprio5);
+				.withRel("excluir");
+		objeto.add(linkProprioTelefone);
+		objeto.add(linkProprioTelefones);
+		objeto.add(linkProprioCadastrar);
+		objeto.add(linkProprioAtualizar);
+		objeto.add(linkProprioExcluir);
 	}
 }

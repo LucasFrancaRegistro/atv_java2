@@ -17,70 +17,70 @@ public class AdicionadorLinkDocumento implements AdicionadorLink<Documento>{
 	public void adicionarLink(List<Documento> lista) {
 		for (Documento documento : lista) {
 			long id = documento.getId();
-			Link linkProprio = WebMvcLinkBuilder
+			Link linkProprioDocumento = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(DocumentoControle.class)
 							.obterDocumento(id))
 					.withSelfRel();
-			Link linkProprio2 = WebMvcLinkBuilder
+			Link linkProprioDocumentos = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(DocumentoControle.class)
 							.obterDocumentos())
 					.withSelfRel();
-			Link linkProprio3 = WebMvcLinkBuilder
+			Link linkProprioCadastrar = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(DocumentoControle.class)
 							.cadastrarDocumento(documento))
 					.withSelfRel();
-			Link linkProprio4 = WebMvcLinkBuilder
+			Link linkProprioAtualizar = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(DocumentoControle.class)
 							.atualizarDocumento(documento))
 					.withSelfRel();
-			Link linkProprio5 = WebMvcLinkBuilder
+			Link linkProprioExcluir = WebMvcLinkBuilder
 					.linkTo(WebMvcLinkBuilder
 							.methodOn(DocumentoControle.class)
 							.excluirDocumento(documento))
 					.withSelfRel();
-			documento.add(linkProprio);
-			documento.add(linkProprio2);
-			documento.add(linkProprio3);
-			documento.add(linkProprio4);
-			documento.add(linkProprio5);
+			documento.add(linkProprioDocumento);
+			documento.add(linkProprioDocumentos);
+			documento.add(linkProprioCadastrar);
+			documento.add(linkProprioAtualizar);
+			documento.add(linkProprioExcluir);
 		}
 	}
 
 	@Override
 	public void adicionarLink(Documento objeto) {
-		Link linkProprio = WebMvcLinkBuilder
+		Link linkProprioDocumentos = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(DocumentoControle.class)
 						.obterDocumentos())
 				.withRel("documentos");
-		Link linkProprio2 = WebMvcLinkBuilder
+		Link linkProprioDocumento = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(DocumentoControle.class)
 						.obterDocumento(objeto.getId()))
-				.withRel("documentos");
-		Link linkProprio3 = WebMvcLinkBuilder
+				.withRel("documento");
+		Link linkProprioCadastrar = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(DocumentoControle.class)
 						.cadastrarDocumento(objeto))
-				.withRel("documentos");
-		Link linkProprio4 = WebMvcLinkBuilder
+				.withRel("cadastrar");
+		Link linkProprioAtualizar = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(DocumentoControle.class)
 						.atualizarDocumento(objeto))
-				.withRel("documentos");
-		Link linkProprio5 = WebMvcLinkBuilder
+				.withRel("atualizar");
+		Link linkProprioExcluir = WebMvcLinkBuilder
 				.linkTo(WebMvcLinkBuilder
 						.methodOn(DocumentoControle.class)
 						.excluirDocumento(objeto))
-				.withRel("documentos");
-		objeto.add(linkProprio);
-		objeto.add(linkProprio2);
-		objeto.add(linkProprio3);
-		objeto.add(linkProprio4);
-		objeto.add(linkProprio5);
+				.withRel("excluir");
+		objeto.add(linkProprioDocumentos);
+		objeto.add(linkProprioDocumento);
+		objeto.add(linkProprioCadastrar);
+		objeto.add(linkProprioAtualizar);
+		objeto.add(linkProprioExcluir);
 	}
 }
