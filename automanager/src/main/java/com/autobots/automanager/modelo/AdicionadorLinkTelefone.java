@@ -21,7 +21,31 @@ public class AdicionadorLinkTelefone implements AdicionadorLink<Telefone>{
 							.methodOn(TelefoneControle.class)
 							.obterTelefone(id))
 					.withSelfRel();
+			Link linkProprio2 = WebMvcLinkBuilder
+					.linkTo(WebMvcLinkBuilder
+							.methodOn(TelefoneControle.class)
+							.obterTelefones())
+					.withSelfRel();
+			Link linkProprio3 = WebMvcLinkBuilder
+					.linkTo(WebMvcLinkBuilder
+							.methodOn(TelefoneControle.class)
+							.cadastrarTelefone(telefone))
+					.withSelfRel();
+			Link linkProprio4 = WebMvcLinkBuilder
+					.linkTo(WebMvcLinkBuilder
+							.methodOn(TelefoneControle.class)
+							.atualizarTelefone(telefone))
+					.withSelfRel();
+			Link linkProprio5 = WebMvcLinkBuilder
+					.linkTo(WebMvcLinkBuilder
+							.methodOn(TelefoneControle.class)
+							.excluirTelefone(telefone))
+					.withSelfRel();
 			telefone.add(linkProprio);
+			telefone.add(linkProprio2);
+			telefone.add(linkProprio3);
+			telefone.add(linkProprio4);
+			telefone.add(linkProprio5);
 		}
 	}
 
@@ -32,6 +56,30 @@ public class AdicionadorLinkTelefone implements AdicionadorLink<Telefone>{
 						.methodOn(TelefoneControle.class)
 						.obterTelefones())
 				.withRel("telefone");
+		Link linkProprio2 = WebMvcLinkBuilder
+				.linkTo(WebMvcLinkBuilder
+						.methodOn(TelefoneControle.class)
+						.obterTelefone(objeto.getId()))
+				.withRel("telefone");
+		Link linkProprio3 = WebMvcLinkBuilder
+				.linkTo(WebMvcLinkBuilder
+						.methodOn(TelefoneControle.class)
+						.cadastrarTelefone(objeto))
+				.withRel("telefone");
+		Link linkProprio4 = WebMvcLinkBuilder
+				.linkTo(WebMvcLinkBuilder
+						.methodOn(TelefoneControle.class)
+						.atualizarTelefone(objeto))
+				.withRel("telefone");
+		Link linkProprio5 = WebMvcLinkBuilder
+				.linkTo(WebMvcLinkBuilder
+						.methodOn(TelefoneControle.class)
+						.excluirTelefone(objeto))
+				.withRel("telefone");
 		objeto.add(linkProprio);
+		objeto.add(linkProprio2);
+		objeto.add(linkProprio3);
+		objeto.add(linkProprio4);
+		objeto.add(linkProprio5);
 	}
 }

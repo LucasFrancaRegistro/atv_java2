@@ -22,7 +22,31 @@ public class AdicionadorLinkDocumento implements AdicionadorLink<Documento>{
 							.methodOn(DocumentoControle.class)
 							.obterDocumento(id))
 					.withSelfRel();
+			Link linkProprio2 = WebMvcLinkBuilder
+					.linkTo(WebMvcLinkBuilder
+							.methodOn(DocumentoControle.class)
+							.obterDocumentos())
+					.withSelfRel();
+			Link linkProprio3 = WebMvcLinkBuilder
+					.linkTo(WebMvcLinkBuilder
+							.methodOn(DocumentoControle.class)
+							.cadastrarDocumento(documento))
+					.withSelfRel();
+			Link linkProprio4 = WebMvcLinkBuilder
+					.linkTo(WebMvcLinkBuilder
+							.methodOn(DocumentoControle.class)
+							.atualizarDocumento(documento))
+					.withSelfRel();
+			Link linkProprio5 = WebMvcLinkBuilder
+					.linkTo(WebMvcLinkBuilder
+							.methodOn(DocumentoControle.class)
+							.excluirDocumento(documento))
+					.withSelfRel();
 			documento.add(linkProprio);
+			documento.add(linkProprio2);
+			documento.add(linkProprio3);
+			documento.add(linkProprio4);
+			documento.add(linkProprio5);
 		}
 	}
 
@@ -33,6 +57,30 @@ public class AdicionadorLinkDocumento implements AdicionadorLink<Documento>{
 						.methodOn(DocumentoControle.class)
 						.obterDocumentos())
 				.withRel("documentos");
+		Link linkProprio2 = WebMvcLinkBuilder
+				.linkTo(WebMvcLinkBuilder
+						.methodOn(DocumentoControle.class)
+						.obterDocumento(objeto.getId()))
+				.withRel("documentos");
+		Link linkProprio3 = WebMvcLinkBuilder
+				.linkTo(WebMvcLinkBuilder
+						.methodOn(DocumentoControle.class)
+						.cadastrarDocumento(objeto))
+				.withRel("documentos");
+		Link linkProprio4 = WebMvcLinkBuilder
+				.linkTo(WebMvcLinkBuilder
+						.methodOn(DocumentoControle.class)
+						.atualizarDocumento(objeto))
+				.withRel("documentos");
+		Link linkProprio5 = WebMvcLinkBuilder
+				.linkTo(WebMvcLinkBuilder
+						.methodOn(DocumentoControle.class)
+						.excluirDocumento(objeto))
+				.withRel("documentos");
 		objeto.add(linkProprio);
+		objeto.add(linkProprio2);
+		objeto.add(linkProprio3);
+		objeto.add(linkProprio4);
+		objeto.add(linkProprio5);
 	}
 }
