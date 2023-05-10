@@ -24,7 +24,7 @@ public class AutomanagerApplication {
 
 	public static void main(String[] args) {
 		Map<String, Object> configuracao = new HashMap<>();
-		configuracao.put("server.port", "9080");
+		configuracao.put("server.port", "8080");
 		SpringApplication app = new SpringApplication(AutomanagerApplication.class);
 		app.setDefaultProperties(configuracao);
 		app.run(args);

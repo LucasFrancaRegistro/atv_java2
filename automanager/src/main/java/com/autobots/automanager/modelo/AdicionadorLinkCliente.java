@@ -21,6 +21,15 @@ public class AdicionadorLinkCliente implements AdicionadorLink<Cliente> {
 							.methodOn(ClienteControle.class)
 							.obterCliente(id))
 					.withSelfRel();
+			
+			Link linkProprio2 = WebMvcLinkBuilder
+					.linkTo(WebMvcLinkBuilder
+							.methodOn(ClienteControle.class)
+							.excluirCliente(cliente))
+					.withSelfRel();
+			
+			
+			cliente.add(linkProprio2);
 			cliente.add(linkProprio);
 		}
 	}
