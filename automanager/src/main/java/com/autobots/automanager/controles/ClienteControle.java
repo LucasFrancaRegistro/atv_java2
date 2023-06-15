@@ -55,7 +55,7 @@ public class ClienteControle {
 		}
 	}
 
-	@PostMapping("/cadastro")
+	@PostMapping("/cadastrar")
 	public ResponseEntity<?> cadastrarCliente(@RequestBody Cliente cliente) {
 		HttpStatus status = HttpStatus.CONFLICT;
 		if (cliente.getId() == null) {

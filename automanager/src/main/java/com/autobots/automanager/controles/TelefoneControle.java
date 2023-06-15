@@ -59,7 +59,7 @@ public class TelefoneControle {
 		}
 	}
 
-	@PostMapping("/cadastro/{id}")
+	@PostMapping("/cadastrar/{id}")
 	public ResponseEntity<?> cadastrarTelefone(@RequestBody Telefone telefone, @PathVariable long id) {
 		HttpStatus status = HttpStatus.CONFLICT;
 		if (telefone == null) {

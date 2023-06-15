@@ -59,7 +59,7 @@ public class EnderecoControle {
 		}
 	}
 
-	@PostMapping("/cadastro/{id}")
+	@PostMapping("/cadastrar/{id}")
 	public ResponseEntity<?> cadastrarEndereco(@RequestBody Endereco endereco, @PathVariable long id) {
 		HttpStatus status = HttpStatus.CONFLICT;
 		if (endereco != null) {
